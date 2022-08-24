@@ -6,8 +6,10 @@ import os
 
 import torch
 import torch.nn as nn
-import torchnet as tnt
+# import torchnet as tnt
 from torch.autograd import Variable
+
+tnt = None
 
 import methods.packnet.dataset as dataset
 import methods.packnet.networks as net

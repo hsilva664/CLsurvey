@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+matplotlib = "==3.2.2"
+tqdm = "==4.64.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"
