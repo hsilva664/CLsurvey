@@ -107,7 +107,7 @@ def main(overwrite_args):
     # Approach and Optimizer
     #####################################
     appr = approach.Appr(net, args.output, sbatch=args.batch_size, nepochs=args.nepochs, lr=args.lr, args=args,
-                         lr_factor=2, lr_patience=30)
+                         lr_factor=10, lr_patience=10)
     print(appr.criterion)
 
     #####################################
