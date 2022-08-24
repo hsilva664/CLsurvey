@@ -33,12 +33,12 @@ class Logger(object):
 
 parser = argparse.ArgumentParser(description='Continual Learning Survey: Hyperparameter Selection Framework')
 
-parser.add_argument("--logfile", type=str, default=None)
 
 # REQUIRED ARGS
 parser.add_argument('model_name', type=str, help="e.g. base_vgg9_cl_512_512")
 parser.add_argument('--method_name', type=str, default=None)
 parser.add_argument('--ds_name', type=str, default=None)
+parser.add_argument("--logfile", type=str, default=None)
 
 # PATHS
 parser.add_argument('--gridsearch_name', type=str, default="demo",
