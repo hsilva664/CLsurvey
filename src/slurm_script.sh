@@ -1,5 +1,6 @@
 #!/bin/bash
 
+. $HOME/my_cc_scripts/custom_commands.sh
 rm -rf data/datasets/tiny-imagenet
 cp data/datasets/tiny-imagenet_backup ${SLURM_TMPDIR}/tiny-imagenet
 ln -s ${SLURM_TMPDIR}/tiny-imagenet data/datasets/tiny-imagenet
