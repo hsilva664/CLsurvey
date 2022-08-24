@@ -13,8 +13,27 @@ import models.net as nets
 import utilities.utils as utils
 import data.dataset as datasets
 import methods.method as methods
+import sys
+
+class Logger(object):
+    def __init__(self, logfile):
+        self.terminal = sys.stdout
+        self.log = open(logfile, "w")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        # this flush method is needed for python 3 compatibility.
+        # this handles the flush command by doing nothing.
+        # you might want to specify some extra behavior here.
+        pass
+
 
 parser = argparse.ArgumentParser(description='Continual Learning Survey: Hyperparameter Selection Framework')
+
+parser.add_argument("--logfile", type=str, default=None)
 
 # REQUIRED ARGS
 parser.add_argument('model_name', type=str, help="e.g. base_vgg9_cl_512_512")
@@ -78,6 +97,9 @@ def main(method=None, dataset=None):
     """Training pipeline."""
     utils.init()
     args = parser.parse_args()
+
+    if args.logfile is not None:
+        sys.stdout = Logger(args.logfile)
 
     # ADD EXTERNAL PROJECT PATHS
     config = utils.get_parsed_config()
